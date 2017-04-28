@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Jukebox!</title>
+		<link rel="stylesheet" type="text/css" href="./css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="./css/style.css"/>
+
+		<script src="https://connect.soundcloud.com/sdk/sdk-3.1.2.js"></script>
+		<script src="./js/jquery-3.2.0.min.js"></script>
+		<script src="./js/jukeboxscript.js"></script>
+	</head>
+	<body>
+			<h1>Can't Stop Won't Stop Jukebox</h1>
+		<div class="jukebox">
+			<div class="jukebox-header">
+				<div class="jukebox-header-logo"></div>
+				<label class="jukebox-header-upload">
+					Upload
+					<input type="file" accept="audio/*" multiple/>
+				</label>
+		</div>
+		<div class="soundcloud">
+							<input
+							type="text"
+							class="soundcloud-input"
+							placeholder="Paste or type in SoundCloud url"
+							/>
+			</div>
+			<div class="jukebox-songs-song"></div>
+			<div class="jukebox-controls">
+				<button class="jukebox-controls-button jukebox-controls-play">Play</button>
+				<button class="jukebox-controls-button jukebox-controls-stop">Stop</button>
+				<button class="jukebox-controls-button jukebox-controls-next">Next</button>
+				<button class="jukebox-controls-button jukebox-controls-previous">Previous</button>
+				<button class="jukebox-controls-button jukebox-controls-shuffle">Shuffle</button>
+				<button class="jukebox-controls-button jukebox-controls-mute">Mute</button>
+			</div>
+			</div>
+	</body>
+</html>
