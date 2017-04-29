@@ -36,6 +36,7 @@ var Jukebox = {
 			upload: $(".js-upload"),
 			songs: $(".jukebox-songs"),
 			modal: $(".modal"),
+			artwork: $(".jukebox-songs-album-artwork"),
 		};
 
 		// Queue up some default songs
@@ -52,7 +53,7 @@ var Jukebox = {
 			artist: "The Chaingang of 1974",
 		});
 		// Add Soundcloud song
-		this.addSong("https://soundcloud.com/neelmonsta/kehna-hi-kya-ountdown");
+		// this.addSong("https://soundcloud.com/neelmonsta/kehna-hi-kya-ountdown");
 		this.change(this.songs[0]);
 
 		// Render and bind!
@@ -79,10 +80,12 @@ var Jukebox = {
 
 		this.dom.next.on("click", function() {
 			this.skip(1);
+			this.play();
 		}.bind(this));
 
 		this.dom.prev.on("click", function() {
 			this.skip(-1);
+			this.play();
 		}.bind(this));
 
 		this.dom.stop.on("click", this.stop.bind(this));
@@ -131,6 +134,7 @@ var Jukebox = {
 			else {
 				$song.removeClass("isActive");
 			}
+			$('.jukebox-songs').append($song);
 		}
 
 		// Indicate paused vs played
@@ -253,10 +257,11 @@ var Jukebox = {
 		}
 
 		this.songs.push(song);
+		console.log(this.songs);
 
 		var $song = song.render();
 		this.dom.songs.append($song);
-		this.render();
+		// this.render();
 
 		return song;
 	},
@@ -285,7 +290,6 @@ var Jukebox = {
 };
 
 
-
 /**
  * Song Class. Only meant to be extended, does not do anything on its own.
  */
@@ -310,7 +314,7 @@ class Song {
 		this.$song.append('<div class="jukebox-songs-song-pic"></div>');
 		this.$song.append('<div class="jukebox-songs-song-title">' + this.meta.title + '</div>');
 		this.$song.append('<div class="jukebox-songs-song-artist">' + this.meta.artist + '</div>');
-		this.$song.append('<div class="jukebox-songs-song-duration">' + "3:22" + '</div>');
+		this.$song.append('<img class="album art" src="' +	this.meta.artwork + '" />');
 
 		return this.$song;
 	}
@@ -376,9 +380,11 @@ class SoundCloudSong extends Song {
 		SC.resolve(url)
 			// Assign that metadata to the song object
 			.then(function(song) {
+				console.log('this', song);
 				this.meta = {
 					title: song.title,
 					artist: song.user.username,
+					artwork:song.artwork_url,
 				};
 				return song;
 			}.bind(this))
@@ -389,13 +395,24 @@ class SoundCloudSong extends Song {
 			}.bind(this))
 			// Render our song with all that sweet sweet data
 			.then(function() {
-				this.render();
+				// this.render();
 			}.bind(this));
 	}
 }
 
-
-
 $(document).ready(function() {
 	Jukebox.start();
+	// when the user presses enter on the text input run the following line
+
+	document.getElementsByClassName('soundcloud-input')[0].addEventListener
+	("keypress", function(event) {
+		console.log(event.key);
+
+		if (event.key === "Enter")
+			return Jukebox.addSong($('.soundcloud-input').val()
+		);
+		else {
+			return ("");
+		}
+	});
 });
