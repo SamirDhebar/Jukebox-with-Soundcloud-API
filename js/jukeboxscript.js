@@ -314,7 +314,7 @@ class Song {
 		this.$song.append('<div class="jukebox-songs-song-pic"></div>');
 		this.$song.append('<div class="jukebox-songs-song-title">' + this.meta.title + '</div>');
 		this.$song.append('<div class="jukebox-songs-song-artist">' + this.meta.artist + '</div>');
-		this.$song.append('<img class="album art" src="' +	this.meta.artwork + '" />');
+		// this.$song.append('<img class="album art" src="' +	this.meta.artwork + '" />');
 
 		return this.$song;
 	}
@@ -397,6 +397,15 @@ class SoundCloudSong extends Song {
 			.then(function() {
 				// this.render();
 			}.bind(this));
+	}
+	render() {
+		this.$song.html("");
+		this.$song.append('<div class="jukebox-songs-song-pic"></div>');
+		this.$song.append('<div class="jukebox-songs-song-title">' + this.meta.title + '</div>');
+		this.$song.append('<div class="jukebox-songs-song-artist">' + this.meta.artist + '</div>');
+		this.$song.append('<img class="album art" src="' +	this.meta.artwork + '" />');
+
+		return this.$song;
 	}
 }
 
