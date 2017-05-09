@@ -1,0 +1,57 @@
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: none;
+
+}
+
+body {
+	font-family: "Arial", sans-serif;
+	font-size: 14px;
+	line-height: 1.5em;
+	color: #fff;
+	background-image:url("./img/bg.png");
+}
+
+.clearfix{
+		clear:both;
+}
+
+#jukebox{
+	width: 330px;
+	min-height: 400px;
+	background:#333;
+	overflow: auto;
+	margin: 60px auto;
+	border: #666 solid 2px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+}
+
+#jukeboxheader{
+	position: relative;
+	overflow: hidden;
+	height: 50px;
+	margin-bottom: 15px;
+}
+
+#jukeboxheaderlogo {
+	text-align: center;
+}
+
+#jukeboxcontrols {
+width: 85%;
+display: block;
+margin: 15px auto;
+margin-left: 23px;
+overflow: auto;
+}
+
+button#playbutton {
+	width: 70px;
+	height: 70px;
+background-image:url("./img/play.png") no-repeat;
+float: left;
+}

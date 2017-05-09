@@ -248,8 +248,7 @@ var Jukebox = {
 	 */
 	addSong: function(file, meta) {
 		var song;
-
-		if (file.indexOf("soundcloud.com") !== -1) {
+		if (file.includes("soundcloud.com")) {
 			song = new SoundCloudSong(file);
 		}
 		else {
@@ -375,6 +374,8 @@ class SoundCloudSong extends Song {
 	 */
 	constructor(url) {
 		super();
+		console.log(url);
+		console.log(this);
 
 		// Convert the URL to an object with metadata from the API
 		SC.resolve(url)
@@ -385,17 +386,19 @@ class SoundCloudSong extends Song {
 					title: song.title,
 					artist: song.user.username,
 					artwork:song.artwork_url,
+					link: song.user.permalink_url,
 				};
 				return song;
 			}.bind(this))
-			// Create the Audio instance from the song's uri
+
+			// // Create the Audio instance from the song's uri
 			.then(function(song) {
 				var uri = song.uri + "/stream?client_id=fd4e76fc67798bfa742089ed619084a6";
 				this.audio = new Audio(uri);
 			}.bind(this))
-			// Render our song with all that sweet sweet data
+			// // Render our song with all that sweet sweet data
 			.then(function() {
-				// this.render();
+				this.render();
 			}.bind(this));
 	}
 	render() {
@@ -404,6 +407,7 @@ class SoundCloudSong extends Song {
 		this.$song.append('<div class="jukebox-songs-song-title">' + this.meta.title + '</div>');
 		this.$song.append('<div class="jukebox-songs-song-artist">' + this.meta.artist + '</div>');
 		this.$song.append('<img class="album art" src="' +	this.meta.artwork + '" />');
+		this.$song.append('<div class="jukebox-songs-song-title">' + '<a href="' + this.meta.link + '" >' + this.meta.artist + '</a></div>');
 
 		return this.$song;
 	}

@@ -10,10 +10,12 @@
 		<script src="./js/jukeboxscript.js"></script>
 	</head>
 	<body>
-			<h1>Can't Stop Won't Stop Jukebox</h1>
-		<div class="jukebox">
-			<div class="jukebox-header">
-				<div class="jukebox-header-logo"></div>
+
+		<div class="jukebox" id="jukebox">
+			<h2>Can't Stop Won't Stop Jukebox</h2>
+			<img class="backgroundcover">
+			<div class="jukebox-header" id="jukeboxheader">
+				<div class="jukebox-header-logo" id="jukeboxheaderlogo"></div>
 				<label class="jukebox-header-upload">
 					Upload
 					<input type="file" accept="audio/*" multiple/>
@@ -28,7 +30,7 @@
 			</div>
 			<div class="jukebox-songs"></div>
 			<img class="jukebox-songs-album-artwork" alt=""/>
-			<div class="jukebox-controls">
+			<div class="jukebox-controls" id="jukeboxcontrols">
 				<button class="jukebox-controls-button jukebox-controls-play">Play</button>
 				<button class="jukebox-controls-button jukebox-controls-stop">Stop</button>
 				<button class="jukebox-controls-button jukebox-controls-next">Next</button>
