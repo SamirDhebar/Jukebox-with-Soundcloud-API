@@ -403,11 +403,14 @@ class SoundCloudSong extends Song {
 	}
 	render() {
 		this.$song.html("");
-		this.$song.append('<div class="jukebox-songs-song-pic"></div>');
-		this.$song.append('<div class="jukebox-songs-song-title">' + this.meta.title + '</div>');
-		this.$song.append('<div class="jukebox-songs-song-artist">' + this.meta.artist + '</div>');
-		this.$song.append('<img class="album art" src="' +	this.meta.artwork + '" />');
-		this.$song.append('<div class="jukebox-songs-song-title">' + '<a href="' + this.meta.link + '" >' + this.meta.artist + '</a></div>');
+		console.log('IS THIS RUNNING?', this.meta)
+		if(this.meta.title){
+			this.$song.append('<div class="jukebox-songs-song-pic"></div>');
+			this.$song.append('<div class="jukebox-songs-song-title">' + this.meta.title + '</div>');
+			this.$song.append('<div class="jukebox-songs-song-artist">' + this.meta.artist + '</div>');
+			this.$song.append('<img class="album art" src="' +	this.meta.artwork + '" />');
+			this.$song.append('<div class="jukebox-songs-song-title">' + '<a href="' + this.meta.link + '" >' + this.meta.artist + '</a></div>');
+		}
 
 		return this.$song;
 	}
