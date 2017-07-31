@@ -54,7 +54,7 @@ overflow: auto;
 }
 
 button#playbutton {
-	width: 70px;
+	font-size: 13px;
 	height: 70px;
 background-image:url("./img/play.png") no-repeat;
 float: left;
