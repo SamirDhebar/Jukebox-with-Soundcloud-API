@@ -403,7 +403,7 @@ class SoundCloudSong extends Song {
 	}
 	render() {
 		this.$song.html("");
-		console.log('SC SHIT', this.meta)
+		console.log('IS THIS RUNNING?', this.meta)
 		if(this.meta.title){
 			this.$song.append('<div class="jukebox-songs-song-pic"></div>');
 			this.$song.append('<div class="jukebox-songs-song-title">' + this.meta.title + '</div>');
