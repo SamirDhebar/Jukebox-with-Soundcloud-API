@@ -6,12 +6,16 @@
 
 }
 
+html {
+  background: url(http://i.imgur.com/usqfsNg.jpg);
+  background-size: cover;
+}
+
 body {
 	font-family: "Arial", sans-serif;
 	font-size: 14px;
 	line-height: 1.5em;
 	color: #fff;
-	background-image:url("./img/bg.png");
 }
 
 .clearfix{
