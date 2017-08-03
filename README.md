@@ -33,4 +33,4 @@ Built upon a previously constructed [Jukebox](https://github.com/samirdhebar/Juk
 
 
 ## License
-This Jukebox Music Player is available the under [MIT License](https://github.com/samirdhebar/Jukebox-with-Soundcloud-API/blob/master/LICENSE.md)
+* This Jukebox Music Player is available the under [MIT License](https://github.com/samirdhebar/Jukebox-with-Soundcloud-API/blob/master/LICENSE.md). 
